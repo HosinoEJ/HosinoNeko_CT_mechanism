@@ -58,6 +58,11 @@
                         <% }) %>
                     </div>
                 </div>
+                <div class="item">
+                    <span id="content-<%= photo.id %>"><%= photo.id %></span>
+                    <!-- 将 ID 传递给函数以便定位 -->
+                    <button onclick="copyToClipboard('<%= photo.id %>')">复制</button>
+                </div>
             </div>
         <% }) %>
         <% } else { %>
@@ -72,5 +77,19 @@
         <p><a href="https://hosinoneko.me">本人網站</a> | <a href="https://victimsunion.org">NO TORSION PROJECT</a> | <a href="https://x.com/HosinoEJ">X</a></p>
     </div>
 
+    <script>
+    function copyToClipboard(id) {
+        // 获取对应的元素文本
+        const text = document.getElementById('content-' + id).innerText;
+
+        navigator.clipboard.writeText(text)
+        .then(() => {
+            document.getElementById('content-' + id).innerText = '已复制'
+        })
+        .catch(err => {
+            console.error('复制失败', err);
+        });
+    }
+    </script>
 </body>
 </html>
