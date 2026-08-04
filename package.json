@@ -4,7 +4,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "update": "node update-db.js"
+    "update": "node update-db.js",
+    "addTag": "node addTag.js",
+    "searchImage": "node searchImage.js",
+    "help": "node help.js"
   },
   "keywords": [],
   "author": "",
